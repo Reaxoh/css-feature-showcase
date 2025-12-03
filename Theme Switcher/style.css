@@ -1,0 +1,73 @@
+:root {
+    /* Colors */
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+.dark-theme {
+    --background-color: #121212;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    transition: background-color 0.3s, color 0.3s;  /* 平滑過渡背景和文字顏色的變化 */
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap:15px;
+}
+
+.toggle {
+    width: 70px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;     
+    padding: 10px;
+    color: #bbb;
+    font-size: 10px; 
+    cursor: pointer;           /* cursor屬性可以改變滑鼠游標的形狀 */
+    user-select: none;        /* user-select: none屬性可以防止文字被選取 */
+}
+
+.toggle-option {
+    flex: 1;
+    text-align: center;
+    pointer-events: none; /* 禁止點擊事件傳遞到子元素 */
+}
+
+.light {
+    color: white;
+}
+
+.toggle-button {
+    width: 36px;
+    height: 24px;
+    background-color: #666;
+    border-radius: 20px;
+    position: absolute;
+    left: 10px;
+    transition:  0.3s;
+}
+
+.toggle.active .toggle-button  {
+    left: 45px;
+    background-color: #0a84ff;
+}
+
+.toggle .light {
+    color: white;
+}
+
+.toggle.active .dark {
+    color: #555;
+}
