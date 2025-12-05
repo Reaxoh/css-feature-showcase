@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Image Upload</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="upload-section">
+                <h3>上傳多張圖片</h3>
+                <input type="file" id="imageUpload" accept="image/*" multiple>
+                <label for="imageUpload" class="upload-label">點擊或拖曳圖片上傳</label>
+                <div id="previewContainer" class="masonry-grid"></div>
+            </div>
+        </div>
+    </body>
+    <script src="main.js"></script>
+</html>
