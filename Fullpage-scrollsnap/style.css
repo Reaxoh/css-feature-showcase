@@ -1,0 +1,70 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;  /* 讓網頁在垂直捲動時，內容會自動精準地對齊到特定的位置 */
+} 
+
+.section {
+    height: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;  /* 防止被超出邊界 */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    color:  #fff;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;  /* 讓 opacity 和 transform 的變化持續 0.8 秒並使用 ease-out(緩慢的結束) 的速度曲線 */
+}
+
+.content p {
+    text-align: left;
+}
+
+.is-active .content {             /* 當section 被加上 .is-active 時，讓 content 執行淡入與位移動畫 */
+
+    opacity: 1;
+    transform:  translateY(0);  
+}
+
+.section::before {               /* 用 ::before 放置背景圖片，並放在內容後方 */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+}
+
+#section1::before {
+    background-image: url('https://i.ibb.co/CpcmFZxn/living-room.jpg');
+}
+
+#section2::before {
+    background-image: url('https://i.ibb.co/VKwZKdR/patio.png');
+}
+
+#section3::before {
+    background-image: url('https://i.ibb.co/SwCnrjfc/balcony.png');
+}
