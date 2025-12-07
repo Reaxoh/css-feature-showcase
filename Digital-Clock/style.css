@@ -1,0 +1,41 @@
+html,body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #111;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.glass {
+    width: 320px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);         /* 模糊背景擬態玻璃 */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);   
+    box-shadow:                                    /* box-shadow邊框陰影 */
+        0 0 30px rgba(0, 255, 255, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+#clock {
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #00faff;
+    text-shadow:                                  /* 霓虹光效果 */
+        0 0 8px #00eaff,
+        0 0 15px #00eaff,
+        0 0 25px #00eaff,
+        0 0 40px #00eaff;
+}
+
+#clock {                                          /* 底部倒影效果 */
+    -webkit-box-reflect: below 8px
+        linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+}
