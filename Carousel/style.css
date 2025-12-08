@@ -1,0 +1,103 @@
+html,body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    user-select: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0;
+    padding: 20px;
+}
+
+.carousel-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow:                
+        0 0 8px #556263,
+        0 0 15px #556263,
+        0 0 25px #556263,
+        0 0 40px #556263;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;  /* 確定圖片滿版於容器 */
+    flex-shrink: 0;   /* 不要讓圖片的容器縮小 */
+}
+
+.carousel-item img{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.carousel-button {
+    position: absolute;  
+    top: 50%;                     /* 對其父容器 carousel 的高度置中 */
+    transform: translateY(-50%);  /* carousel-button自身的高度的置中  */
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 2rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.5s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #fff;
+}
