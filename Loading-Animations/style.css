@@ -1,0 +1,114 @@
+html, body {
+    margin: 0px;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ecc7c7;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    justify-items: center;   /*控制 grid 裡面的元素置中 */
+}
+
+.card {
+    width: 250px;
+    height: 150px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(100, 68, 68, 0.08);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card p {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 15px; 
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+.spinner {              
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%; 
+    border: 8px solid rgb(26, 14, 185);                                           /* 設定外邊框顏色藍色 */
+    border-right-color: #21e2c8;                                                  /* 覆蓋右側邊框顏色 */
+    animation: spinner 1s infinite linear;                                          /* infinite 無限重複， linear 固定速度 */
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotate(1turn)                                                    /* 將元素旋轉一圈 */
+    }
+}
+
+.infinity {
+    width: 90px;
+    height: 10px;
+    background-image: radial-gradient(circle closest-side, #000 92%, #0000);    /* 設定成圓形背景圖片 */                                               
+    background-position: calc(100%/3);                                              /* 背景圖片的起點為容器寬度1/3處 */ 
+    background-size: calc(100%/4) 100%;                                             /* 設定尺寸為25%*/
+    background-repeat: repeat;
+    animation: infinity 0.5s infinite linear;                                      
+}
+
+@keyframes infinity {
+    100% { 
+        background-position: 0 0;                                                   /* 動畫結束到達100%時，將背景位置設定左上角 */
+    }
+}
+
+.progress {
+    width: 120px;
+    height: 20px;
+    border-radius: 20px;
+    background-image: linear-gradient(orange 0 0);                                /* 設定橘色背景 */
+    background-position: 0 0;                                                       /* 設定位置為左上角 */
+    background-size: 0%;                                                            /* 設定寬度0%，高度自動 */       
+    background-repeat: no-repeat;
+    background-color: lightblue;
+    animation: progress 3s infinite steps(10);                                      /* steps(10) 將 progress 以10個步驟進行 */
+}
+
+@keyframes progress {
+    100% {
+        background-size: 110%;                                                      /* 讓背景圖片寬度逐漸填滿並稍微溢出 */
+    }
+}
