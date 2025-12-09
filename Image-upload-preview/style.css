@@ -45,16 +45,13 @@ body {
     column-gap: 15px;
 }
 
-
 @media (max-width: 768px) {
     .masonry-grid {
         columns: 2;
     }
 }
 
-    
-@me
-dia (max-width: 480px) {
+@media (max-width: 480px) {
     .masonry-grid {
         columns: 1;
     }
@@ -62,11 +59,11 @@ dia (max-width: 480px) {
 
 .masonry-item {
     position: relative;
-    break-inside: avoid; /* 防止圖片在多欄佈局中被拆分 */
+    break-inside: avoid;        /* 防止圖片在多欄佈局中被拆分 */
     border-radius: 15px;
-    overflow: hidden;  /* 圖片超過容器部分隱藏 */
-    display: inline-block;  /* 讓圖片元素成為行內區塊 */
-    width: 100%; /* 確保圖片佔滿容器寬度 */
+    overflow: hidden;           /* 圖片超過容器部分隱藏 */
+    display: inline-block;      /* 讓圖片元素成為行內區塊 */
+    width: 100%;                /* 確保圖片佔滿容器寬度 */
 }
 
 .masonry-item img {
@@ -97,5 +94,5 @@ dia (max-width: 480px) {
 }
 
 .masonry-item:hover .delete-btn {
-  opacity: 1;
+    opacity: 1;
 }
