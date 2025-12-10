@@ -112,3 +112,104 @@ html, body {
         background-size: 110%;                                                      /* 讓背景圖片寬度逐漸填滿並稍微溢出 */
     }
 }
+
+/* 主要文字容器 */
+.typing {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: aqua;
+    text-shadow: 1px 1px 2px pink; 
+    width: 10ch;                                                                    /* 設定10個字元 */
+    overflow: hidden;                                                               /* 隱藏超出寬度的文字 */
+    white-space: nowrap;                                                            /* 確保文字不換行 */
+    border-right: .1em solid rgba(0, 0, 0, 0.5);                                  /* 設定閃爍的光標 */
+    animation: 
+        typing 2s steps(10) infinite ,                                              /* 打字動畫 */
+        blink-line .75s step-end infinite;                                          /* 光標閃爍動畫 */
+}
+
+.typing::before {
+    content: "Loading...";
+}
+
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+
+    to { 
+        width: 10ch; 
+    } 
+}
+
+@keyframes blink-line {
+    from { 
+        border-color: transparent;                                                  /* transparent 透明 */
+    }                  
+
+    50% { 
+        border-color: rgba(0, 0, 0, 0.5);                                         
+    } 
+
+    to { 
+        border-color: transparent;                                                  
+    }
+}
+
+.bar {
+    width: 50px;
+    aspect-ratio: 0.75;
+    --bar: no-repeat linear-gradient(#bb35f0 0 0);                                /* 使用變數定義 background-image、background-repeat 屬性*/
+    background:                                                                     /* 將剛儲存的設定放進去，並加入background-position */
+        var(--bar) 0%   50%,
+        var(--bar) 50%  50%,
+        var(--bar) 100% 50%;
+    background-size: 20% 50%;
+    animation: bar-shark 2s infinite linear;
+}
+
+@keyframes bar-shark {
+    20% {
+        background-position: 0% 0%  ,50% 50% ,100% 50%;                             /* 第一條移至頂部，第二、三條不變 */
+    }                           
+    40% {
+        background-position: 0% 100%,50% 0%  ,100% 50%;                             /* 第一條移至底部，第二條移至頂部、第三條不變 */
+    }                           
+    60% {
+        background-position: 0% 50% ,50% 100%,100% 0%;                              /* 第一條不變，第二條移至底部、第三條移至頂部 */
+    }                          
+    80% {
+        background-position: 0% 50% ,50% 50% ,100% 100%;                            /* 第一條不變，第二條不變、第三條移至底部 */
+    }                           
+    100% {
+        background-position: 0% 50% ,50% 50% ,100% 50%;                             /* 所有 bar 回歸初始位置 */
+    }                          
+} 
+
+.arrow {
+    width: 50%;
+    height: 30px;
+    display: flex;
+}
+
+.arrow::before {
+    content:  "";
+    background-color: #d4c822;
+    width: 15px;
+    clip-path: polygon(                                                             /* 使用 clip-path 裁切出箭頭形狀 只顯示頭部*/
+        0 10px,
+        calc(100% - 15px) 10px,
+        calc(100% - 15px) 0,
+        100% 50%,
+        calc(100% - 15px) 100%,
+        calc(100% - 15px) calc(100% - 10px),
+        0 calc(100% - 10px)
+    );
+    animation: arrow 2s infinite linear;
+}
+
+@keyframes arrow {  
+    90%, 100% {                                                                     /* 90% 到 100% 製造延遲後瞬間擴展的效果 */ 
+        flex-grow: 1;                                                               /* width: 15px 會被替換成 flex-grow: 1，讓元素佔滿所有可用空間 */
+    }
+} 
