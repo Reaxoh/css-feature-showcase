@@ -113,7 +113,6 @@ html, body {
     }
 }
 
-/* 主要文字容器 */
 .typing {
     font-weight: bold;
     font-size: 1.8rem;
@@ -165,10 +164,10 @@ html, body {
         var(--bar) 50%  50%,
         var(--bar) 100% 50%;
     background-size: 20% 50%;
-    animation: bar-shark 2s infinite linear;
+    animation: bar-shake 2s infinite linear;
 }
 
-@keyframes bar-shark {
+@keyframes bar-shake {
     20% {
         background-position: 0% 0%  ,50% 50% ,100% 50%;                             /* 第一條移至頂部，第二、三條不變 */
     }                           
