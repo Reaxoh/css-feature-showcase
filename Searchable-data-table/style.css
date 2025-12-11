@@ -1,0 +1,57 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background: #F4F9FF;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;  /* 將主軸方向設為垂直，使內容垂直排列 */
+    align-items: center;     /* 在垂直方向上置中對齊所有子項目 */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;       /* 合併表格邊框為單一線條 */
+    background: #fff;
+    box-shadow: 0 3x 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-table thead {
+    background-color: #4A90E2;
+    color: #fff;
+}
+
+.product-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background-color: #F4F9FF;
+}
+
+.product-table th,
+.product-table td {
+    padding:  15px;
+    text-align: left;
+}
+
+.product-table tbody tr:hover {
+    background: #eef0ff;
+    transition: 0.2s;
+}
+
+@media (max-width: 600px) {
+    .product-table th,
+    .product-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
