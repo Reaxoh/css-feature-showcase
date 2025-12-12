@@ -17,6 +17,30 @@ body {
     margin-bottom: 20px;
 }
 
+.search-sort-box {
+    margin-bottom: 20px;
+}
+
+#sort-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+}
+
+#sort-select {
+    border-color: #5c6aff;
+    box-shadow:  0 0 6px rgba(92, 106, 255 ,0.4);
+}
+
+@media (max-width: 600px) {
+    .search-sort-box {
+        flex-direction: column;
+    }
+}
+
 .product-table {
     width: 100%;
     border-collapse: collapse;       /* 合併表格邊框為單一線條 */
