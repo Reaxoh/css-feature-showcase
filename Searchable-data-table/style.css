@@ -19,10 +19,11 @@ body {
 
 .search-sort-box {
     margin-bottom: 20px;
+    display: flex;
+    gap: 10px;   
 }
 
-#sort-select {
-    width: 100%;
+#sort-select, #search-input {
     padding: 10px;
     font-size: 15px;
     border-radius: 10px;
@@ -30,7 +31,7 @@ body {
     box-sizing: border-box;
 }
 
-#sort-select {
+#sort-select, #search-input {
     border-color: #5c6aff;
     box-shadow:  0 0 6px rgba(92, 106, 255 ,0.4);
 }
