@@ -23,7 +23,7 @@ body {
     gap: 10px;   
 }
 
-#sort-select, #search-input {
+#sort-select, #search-input,#category-select {
     padding: 10px;
     font-size: 15px;
     border-radius: 10px;
@@ -31,7 +31,7 @@ body {
     box-sizing: border-box;
 }
 
-#sort-select, #search-input {
+#sort-select, #search-input, #category-select {
     border-color: #5c6aff;
     box-shadow:  0 0 6px rgba(92, 106, 255 ,0.4);
 }
