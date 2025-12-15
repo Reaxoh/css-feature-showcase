@@ -1,0 +1,148 @@
+:root {
+    --primary : #38bdf8;
+    --bg: #020617;
+    --nav-bg: rgba(15, 23, 42, 0.85);
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --nav-color: #fff6f6;
+}
+
+* {                                             /* '*' 代表全部設定 */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.navbar {
+    position: sticky;                           /* 到一定位置後黏住在畫面 */
+    top: 0;                                     /* 設定 navbar 到頂部就黏住 */
+    z-index: 5;
+    backdrop-filter: blur(12px);                /* 設定半透明的模糊背景*/
+    background-color: var(--nav-bg);
+    border-bottom:  1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;             /* space-between分佈對齊 */
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--nav-logo);
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.25s ease;
+}
+
+.navbar-menu a::after {                         /* 製作下底線*/
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), #22d3ee);
+    transition: width 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: var(--nav-color);
+}
+
+.navbar-menu a:hover::after,                    /* 當滑鼠移過去下底線變為100%顯示出來*/
+.navbar-menu a.active::after {                  /* 當有 active class 下底線變為100%顯示出來*/
+    width: 100%;
+}
+
+.navbar-menu a.active {
+    color: var(--nav-color);
+}
+
+.navbar-search input{
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: var(--text);
+    outline: none;
+    font-size: 0.9rem;
+    transition: border 0.2s, background 0.2s;
+}
+
+.navbar-search input::placeholder {
+    color: var(--muted);
+}
+
+.navbar-search input:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: var(--primary);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    color: var(--muted);
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-wrap: wrap;                        /* flex-wrap: wrap; 空間不夠自動換行 */                            
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .navbar-logo {
+        padding-top: 20px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+    
+    .navbar-search {
+        width: 100%;
+        padding: 8px 16px;
+    }
+
+    .navbar-search input {
+        width: 100%;
+    }
+}
+
+
