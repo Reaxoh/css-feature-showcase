@@ -1,0 +1,104 @@
+:root {
+    --bg: #0f172a;
+    --body-bg: #020617;
+    --panel: #111827;
+    --item: #1f2937;
+    --accent: #38bdf8;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --active: #38bdf833;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text);
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    min-height: 100dvh;
+}
+
+.sidebar {
+    z-index: 5;
+    width: 250px;
+    background-color: var(--panel);
+    padding: 15px;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.toggle {
+    margin-left: auto;                      /* 自動置右 */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-icon{
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--text);
+    user-select: none;
+    transition: transform .2s ease;
+}
+
+.nav {
+    display: grid;
+    gap: 20px;
+}
+
+.item {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.item:hover,
+.toggle:hover{
+    background-color: var(--item);
+    border-radius: 10px;
+}
+
+.item.active {
+    background-color: var(--active);
+    border-radius: 10px;
+}
+
+.sidebar.collapsed .label,
+.sidebar.collapsed .title {
+    display: none;                      /* 有 collapsed class 時不顯示字 */
+}
+
+.sidebar.collapsed .item,
+.sidebar.collapsed .brand {
+    justify-content: center;            /* 有 collapsed class 時元素置中 */
+}
+
+.content{ 
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
