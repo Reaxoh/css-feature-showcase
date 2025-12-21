@@ -1,3 +1,4 @@
+let state = { current:  1, limit:5};                                                // 分頁狀態： current 為當前頁碼， limit 為每頁顯示幾筆
 const products = [
     { id: 1,  name: 'Mechanical Keyboard', price: 1200 },
     { id: 2,  name: 'Wireless Mouse', price: 800 },
@@ -36,4 +37,24 @@ function loadDataSet(data) {
     });
 }
 
-loadDataSet(products);
+function initPagination() {
+    const nav = document.getElementById('paginationCapsule');
+    nav.innerHTML = '';
+    const total = Math.ceil(products.length / state.limit);                     // 計算總頁數：總資料長度除以每頁限制，並無條件進位
+
+    for(let i = 1; i <= total; i++) {
+        const dot = document.createElement('button');
+        dot.classList = `p-dot ${i === state.current ? 'active' : ''}`;         // 若按鈕編號等於當前頁碼，則加上 active 樣式，如果不是就不加
+        dot.innerText = i;
+        dot.onclick = () => {       
+            state.current = i;                                                  // // 更新當前頁碼
+            const sliced = products.slice((i-1)*state.limit, i*state.limit);    // 分頁切割：計算該頁應顯示的資料範圍 [start, end)
+            loadDataSet(sliced);                                                // 重新渲染切割出來的資料
+            initPagination();                                                   // 重新渲染分頁按鈕狀態
+        };
+        nav.appendChild(dot);
+    }
+}
+
+loadDataSet(products.slice(0, state.limit));                                    // 初始進入頁面：顯示第一頁資料並建立分頁按鈕
+initPagination();
