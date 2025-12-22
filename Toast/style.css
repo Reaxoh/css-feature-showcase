@@ -1,0 +1,183 @@
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --start-bg: #f5f7fa;
+    --end-bg: #c3cfe2;
+    --bg-w: #ffffff;
+    --text: #ffffff;
+    --text-header-h4: #111827;
+    --text-header-p: #6b7280;
+    --input-label: #374151;
+    --close-button-bg: #f3f4f6;
+    --close-button-text: #4b5563;
+    --close-button-bg-hover: #e5e7eb;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --icon-box-shadow: rgba(0,0,0,0.05);
+    --button-shadow: rgba(99, 102, 241, 0.4);
+    --form-card-input-border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(135deg, var(--start-bg) 0%, var(--end-bg) 100%);
+}
+
+.container {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.open-toast-button {
+    padding: 16px 32px;
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+    font-weight: 600;
+    color:var(--text);
+    background-color: var(--primary);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px var(--button-shadow);
+    transition: all 0.3s ease;
+}
+
+.open-toast-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-dark);
+    box-shadow: 0 20px 25px -5px var(--button-shadow)
+}
+
+#toastOverlay {                                         /* 製作一個背景遮罩 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;                               /* 忽略所有滑鼠點擊事件，避免沒顯示時卻擋住下方的按鈕 */
+    transition: opacity 0.3s ease;
+}
+
+#toastOverlay.active {
+    opacity: 1;
+    pointer-events: auto;                               /* 恢復滑鼠點擊事件，讓使用者能與遮罩上的內容互動 */
+}
+
+.toast-form-card {
+    width: 380px;
+    background-color: var(--glass-bg);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transform: scale(0.9);
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+#toastOverlay.active .toast-form-card {
+    transform: scale(1);
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-w);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    box-shadow: 0 4px 6px var(--icon-box-shadow);
+}
+
+.toast-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-header-h4);
+}
+
+.toast-header p {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--text-header-p);
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--input-label);
+    margin-bottom: 6px;
+}
+
+.toast-form-card input, 
+.toast-form-card textarea {
+    width: 100%;
+    border: 2px solid var(--form-card-input-border);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.toast-form-card input:focus,
+.toast-form-card textarea:focus {
+    outline: none;
+    border-color:  var(--primary);
+    background-color: var(--bg-w);
+    box-shadow: 0, 0, 0, 4px var(--shadow);
+}
+
+.toast-buttons button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-button {
+    background-color: var(--primary);
+    color: var(--text);
+}
+
+.submit-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.close-button {
+    background-color: var(--close-button-bg);
+    color: var(--close-button-text);
+}
+
+.close-button:hover {
+    background-color: var(--close-button-bg-hover);
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-wrapper">
+                <button id="openToastButton" class="open-toast-button">
+                    <span>✍️ 填寫意見回饋</span>
+                </button>
+            </div>
+            <div id="toastOverlay" class="overlay-hidden">
+                <div id="toastContainer">toast</div>
+            </div>                           
+            <template id="toastTemplate">                                                          <!-- template 由 Javascript 啟動 -->
+                <div class="toast-form-card">
+                    <div class="toast-header">
+                        <div class="icon-box">💬</div>
+                        <div>
+                            <h4>回饋意見</h4>
+                            <p>我們想聽聽您的聲音</p>
+                        </div>
+                    </div>
+                    <form class="feedback-form">
+                        <div class="input-group">
+                            <label>姓名</label>
+
+                            <input type="text" name="username" placeholder="請輸入姓名" required>   <!-- required 如果未輸入內容就按下送出，會自動彈出警示提醒 -->      
+                        </div>
+                        <div class="input-group">
+                            <label>建議內容</label>
+                            <textarea name="content" placeholder="告訴我們您的想法..." rows="4" required></textarea>
+                        </div>
+                        <div class="toast-buttons">
+                            <button type="button" class="close-button">取消</button>
+                            <button type="submit" class="submit-button">確認送出</button>
+                        </div>
+                    </form>
+                </div>
+            </template>
+            <template id="successTemplate">
+                <div class="toast-card success-state" style="text-align: center;">
+                    <div class="icon-check">✅</div>
+                    <h4>送出成功</h4>
+                    <p>感謝您的寶貴意見！</p>
+                </div>
+            </template>
+        </div>   
+        <script src="main.js"></script>
+    </body>
+</html>
